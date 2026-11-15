@@ -1,0 +1,9 @@
+node_modules
+dist
+.DS_Store
+*.local
+
+# Kept on this machine only
+.claude
+legacy-excalidraw
+PARITY.md

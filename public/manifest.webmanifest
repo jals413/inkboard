@@ -1,0 +1,13 @@
+{
+  "name": "Inkboard",
+  "short_name": "Inkboard",
+  "description": "A free hand-drawn whiteboard with unlimited scenes, tables, formulas and version history.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
