@@ -2036,3 +2036,15 @@ kbd {
   white-space: nowrap;
   max-width: none;
 }
+
+/* The app's own controls are not text to select; the canvas text editor is. */
+
+.app {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.app :is(input, textarea) {
+  user-select: text;
+  -webkit-user-select: text;
+}

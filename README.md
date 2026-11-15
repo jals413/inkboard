@@ -30,4 +30,12 @@ Then open http://localhost:5173.
 npm run build
 ```
 
-The site is written to `dist/`. Pushing to `main` deploys it to GitHub Pages.
+The site is written to `dist/`.
+
+## Deploy
+
+```bash
+npm run deploy
+```
+
+This builds the site and publishes it to GitHub Pages.
