@@ -1,6 +1,6 @@
 {
-  "name": "Loosedraw",
-  "short_name": "Loosedraw",
+  "name": "loosedraw",
+  "short_name": "loosedraw",
   "description": "A free hand-drawn whiteboard for diagrams, flowcharts and notes. Works offline.",
   "start_url": ".",
   "scope": ".",

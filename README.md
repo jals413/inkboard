@@ -1,4 +1,4 @@
-# Loosedraw
+# loosedraw
 
 A hand-drawn whiteboard for diagrams, notes and sketches. It runs in the browser, works offline after the first visit, and keeps your scenes on your own device.
 

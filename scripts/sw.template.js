@@ -1,4 +1,4 @@
-// Loosedraw service worker. The cache version and file list below are
+// loosedraw service worker. The cache version and file list below are
 // filled in at build time (see vite.config.ts).
 const CACHE = "loosedraw-__VERSION__";
 const FONTS = "loosedraw-fonts";

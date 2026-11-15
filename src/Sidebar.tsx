@@ -159,7 +159,7 @@ export function Sidebar(p: Props) {
     <aside className="sidebar">
       <header>
         <Logo />
-        <span className="brand">Loosedraw</span>
+        <span className="brand">loosedraw</span>
       </header>
 
       <div className="sidebar-actions">
@@ -171,8 +171,8 @@ export function Sidebar(p: Props) {
         </button>
         <button
           className="outline"
-          title="Import Loosedraw or Excalidraw files"
-          aria-label="Import Loosedraw or Excalidraw files"
+          title="Import loosedraw or Excalidraw files"
+          aria-label="Import loosedraw or Excalidraw files"
           onClick={() => fileInput.current?.click()}
         >
           {Icons.upload}

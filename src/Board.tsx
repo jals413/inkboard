@@ -140,7 +140,7 @@ export function Board(props: Props) {
         {empty && state.tool === "select" && (
           <div className="welcome">
             <Logo size={44} />
-            <h1>Loosedraw</h1>
+            <h1>loosedraw</h1>
             <p>Pick a tool above, or double-click anywhere to type.</p>
           </div>
         )}

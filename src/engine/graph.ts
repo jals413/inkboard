@@ -1,4 +1,4 @@
-// Graphs: boxes joined by arrows, laid out in layers and turned into Loosedraw
+// Graphs: boxes joined by arrows, laid out in layers and turned into loosedraw
 // shapes. It also reads Mermaid flowchart syntax into such a graph (no AI and
 // no Mermaid library; other Mermaid diagram kinds are not supported).
 //

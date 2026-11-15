@@ -101,7 +101,7 @@ export const parseScene = (json: unknown): SceneData & { name?: string } => {
   const scene = json as { type?: string; name?: unknown; shapes?: Shape[] };
   // "inkboard" is the product's earlier name: files saved then still open.
   if ((scene?.type !== "loosedraw" && scene?.type !== "inkboard") || !Array.isArray(scene.shapes)) {
-    throw new Error("Not an Loosedraw file");
+    throw new Error("Not an loosedraw file");
   }
   // Scenes built outside the app (the SDK, an AI tool) only estimate how
   // big text is: measure it properly, then re-seat the attached arrows.

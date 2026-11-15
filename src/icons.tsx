@@ -92,7 +92,7 @@ export const Icons = {
   moon: icon(<path d="M20 14.500A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.500z" />),
 };
 
-/** The Loosedraw mark: one loose, looping pen stroke on a rounded tile. */
+/** The loosedraw mark: one loose, looping pen stroke on a rounded tile. */
 export const Logo = ({ size = 22 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
     <rect width="24" height="24" rx="6.5" fill="var(--brand, #2563eb)" />

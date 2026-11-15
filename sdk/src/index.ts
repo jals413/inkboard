@@ -1,4 +1,4 @@
-// The Loosedraw SDK: build a scene in code, then save it as an .loosedraw file
+// The loosedraw SDK: build a scene in code, then save it as an .loosedraw file
 // or open it in the app with a link. It runs anywhere JavaScript does (Node,
 // Deno, Bun, the browser) and has no dependencies.
 //
@@ -299,7 +299,7 @@ export class Scene {
     this.place(graphToShapes(parseMermaid(source), estimateText), at);
   }
 
-  /** Every ready-made item in Loosedraw's shape library, by pack. */
+  /** Every ready-made item in loosedraw's shape library, by pack. */
   static library(): { pack: string; items: string[] }[] {
     return LIBRARY.map((pack) => ({ pack: pack.name, items: pack.items.map((item) => item.name) }));
   }
@@ -338,7 +338,7 @@ export class Scene {
   }
 
   /**
-   * A link that opens this scene as a new scene in the Loosedraw app. The
+   * A link that opens this scene as a new scene in the loosedraw app. The
    * scene travels in the link itself, after the #, so it is never sent to
    * a server.
    */

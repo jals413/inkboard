@@ -1,6 +1,6 @@
-# Loosedraw SDK
+# loosedraw SDK
 
-Build Loosedraw scenes in code. The SDK has no dependencies and runs in Node, Deno, Bun and the browser. A scene can be saved as an `.loosedraw` file or opened in the app with a link.
+Build loosedraw scenes in code. The SDK has no dependencies and runs in Node, Deno, Bun and the browser. A scene can be saved as an `.loosedraw` file or opened in the app with a link.
 
 It is not published to npm yet. Build it from this repository:
 

@@ -1,6 +1,6 @@
-# Loosedraw MCP server
+# loosedraw MCP server
 
-Lets any AI tool that speaks the Model Context Protocol (Claude Code, Claude Desktop, Cursor and others) draw on Loosedraw. Ask for a diagram in plain words; the tool builds it and it opens in Loosedraw as a new, fully editable scene.
+Lets any AI tool that speaks the Model Context Protocol (Claude Code, Claude Desktop, Cursor and others) draw on loosedraw. Ask for a diagram in plain words; the tool builds it and it opens in loosedraw as a new, fully editable scene.
 
 ## Set it up
 
@@ -34,7 +34,7 @@ For tools configured with JSON (Claude Desktop, Cursor), use the full path to th
 }
 ```
 
-Loosedraw itself must be running at `LOOSEDRAW_URL` for scenes to open (`npm run dev` while developing).
+loosedraw itself must be running at `LOOSEDRAW_URL` for scenes to open (`npm run dev` while developing).
 
 ## Tools
 
@@ -47,18 +47,18 @@ Loosedraw itself must be running at `LOOSEDRAW_URL` for scenes to open (`npm run
 
 Each tool saves an `.loosedraw` file and, unless called with `open: false`, opens the scene in your browser.
 
-By default the result opens as a new scene. With `target: "current"` the shapes are added to whichever scene is open in Loosedraw instead, as one undo step.
+By default the result opens as a new scene. With `target: "current"` the shapes are added to whichever scene is open in loosedraw instead, as one undo step.
 
 ## Settings
 
 | Variable | Default | Meaning |
 |---|---|---|
-| `LOOSEDRAW_URL` | `http://localhost:5173` | Where the Loosedraw app runs. |
-| `LOOSEDRAW_DIR` | `~/Loosedraw` | Where `.loosedraw` files are saved. |
+| `LOOSEDRAW_URL` | `http://localhost:5173` | Where the loosedraw app runs. |
+| `LOOSEDRAW_DIR` | `~/loosedraw` | Where `.loosedraw` files are saved. |
 
 ## How a scene reaches the app
 
-The scene travels inside the link, after the `#`. Browsers do not send that part to any server, so the diagram goes from your machine straight into the app in your browser. Scenes too large for a link are saved as a file only; import the file from Loosedraw's sidebar.
+The scene travels inside the link, after the `#`. Browsers do not send that part to any server, so the diagram goes from your machine straight into the app in your browser. Scenes too large for a link are saved as a file only; import the file from loosedraw's sidebar.
 
 ## Limits
 

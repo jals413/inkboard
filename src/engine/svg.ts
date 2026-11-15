@@ -231,7 +231,7 @@ let fontCss: Promise<string> | null = null;
 
 /**
  * The handwriting face as an embedded @font-face rule, so an exported SVG
- * looks the same on a machine that has never opened Loosedraw.
+ * looks the same on a machine that has never opened loosedraw.
  */
 export const handFontCss = () =>
   (fontCss ??= fetch(fontUrl)
