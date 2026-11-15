@@ -159,7 +159,7 @@ export function Sidebar(p: Props) {
     <aside className="sidebar">
       <header>
         <Logo />
-        <span className="brand">Inkboard</span>
+        <span className="brand">Loosedraw</span>
       </header>
 
       <div className="sidebar-actions">
@@ -171,8 +171,8 @@ export function Sidebar(p: Props) {
         </button>
         <button
           className="outline"
-          title="Import Inkboard or Excalidraw files"
-          aria-label="Import Inkboard or Excalidraw files"
+          title="Import Loosedraw or Excalidraw files"
+          aria-label="Import Loosedraw or Excalidraw files"
           onClick={() => fileInput.current?.click()}
         >
           {Icons.upload}
@@ -180,7 +180,7 @@ export function Sidebar(p: Props) {
         <input
           ref={fileInput}
           type="file"
-          accept=".inkboard,.excalidraw,application/json"
+          accept=".loosedraw,.inkboard,.excalidraw,application/json"
           multiple
           hidden
           onChange={(e) => {

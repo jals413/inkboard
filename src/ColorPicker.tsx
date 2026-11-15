@@ -37,7 +37,7 @@ type Props = {
 };
 
 /**
- * Inkboard's own colour picker: the palette, five shades of whichever
+ * Loosedraw's own colour picker: the palette, five shades of whichever
  * colour is picked, recent colours, and a field for an exact hex value.
  */
 export function ColorPicker({ anchor, value, onPick, onClose }: Props) {

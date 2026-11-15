@@ -92,18 +92,17 @@ export const Icons = {
   moon: icon(<path d="M20 14.500A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.500z" />),
 };
 
-/** The Inkboard mark: an ink stroke on a rounded tile. */
+/** The Loosedraw mark: one loose, looping pen stroke on a rounded tile. */
 export const Logo = ({ size = 22 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
     <rect width="24" height="24" rx="6.5" fill="var(--brand, #2563eb)" />
     <path
-      d="M5.5 15.500c1.8-6.5 4-8.5 5.8-4.300s3.4 3.4 7.2-3.7"
+      d="M4.800 16.200c2.600-.900 4.700-3.900 5.300-7 .500-2.700-1-4-2.200-2.400-1.400 1.900-.300 7 2.500 8.500 2.900 1.500 5.800-.500 8.800-3.900"
       fill="none"
       stroke="#fff"
       strokeWidth="2.2"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <circle cx="18.3" cy="16.8" r="1.4" fill="#fff" />
   </svg>
 );

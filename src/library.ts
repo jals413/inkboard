@@ -1,4 +1,4 @@
-// Inkboard's official shape library: packs of ready-made items, grouped by
+// Loosedraw's official shape library: packs of ready-made items, grouped by
 // field and shipped with the app. Every item is built from ordinary shapes,
 // so it stays fully editable after it is dropped on the canvas.
 

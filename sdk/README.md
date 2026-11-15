@@ -1,6 +1,6 @@
-# Inkboard SDK
+# Loosedraw SDK
 
-Build Inkboard scenes in code. The SDK has no dependencies and runs in Node, Deno, Bun and the browser. A scene can be saved as an `.inkboard` file or opened in the app with a link.
+Build Loosedraw scenes in code. The SDK has no dependencies and runs in Node, Deno, Bun and the browser. A scene can be saved as an `.loosedraw` file or opened in the app with a link.
 
 It is not published to npm yet. Build it from this repository:
 
@@ -32,7 +32,7 @@ scene.graph({
   ],
 });
 
-writeFileSync("checkout.inkboard", scene.toJSON());     // import it from the app's sidebar
+writeFileSync("checkout.loosedraw", scene.toJSON());     // import it from the app's sidebar
 console.log(scene.toLink("http://localhost:5173"));     // or open this link
 ```
 
@@ -62,7 +62,7 @@ scene.table({ x: 440, y: 290, cells: [["Field", "Rule"], ["Email", "required"]] 
 | `graph` | Nodes, edges and optional groups, laid out in layers. Returns the shape id for each node id. |
 | `mermaid` | A Mermaid flowchart (`flowchart TD …` or `graph LR …`). Other Mermaid diagram kinds are not supported. |
 | `libraryItem(name, { x, y })` | A ready-made item from the shape library. `Scene.library()` lists the names. Returns the id of its main shape. |
-| `toJSON` | The text of an `.inkboard` file. |
+| `toJSON` | The text of an `.loosedraw` file. |
 | `toLink(appUrl, into?)` | A link that opens the scene in the app: as a new scene, or with `"current"` added to the scene that is open. The scene sits after the `#`, so it is not sent to a server. |
 
 Colours are `ink`, `red`, `orange`, `green`, `blue`, `purple`, `yellow`, or any hex colour.

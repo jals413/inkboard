@@ -1,7 +1,7 @@
-// Inkboard service worker. The cache version and file list below are
+// Loosedraw service worker. The cache version and file list below are
 // filled in at build time (see vite.config.ts).
-const CACHE = "inkboard-__VERSION__";
-const FONTS = "inkboard-fonts";
+const CACHE = "loosedraw-__VERSION__";
+const FONTS = "loosedraw-fonts";
 const FILES = __FILES__;
 
 // Download the whole app up front so it opens with no network.
@@ -22,7 +22,8 @@ self.addEventListener("activate", (event) => {
       .then((keys) =>
         Promise.all(
           keys
-            .filter((key) => key.startsWith("inkboard-") && key !== CACHE && key !== FONTS)
+            // "inkboard-" caches are from the product's earlier name.
+            .filter((key) => /^(loosedraw|inkboard)-/.test(key) && key !== CACHE && key !== FONTS)
             .map((key) => caches.delete(key)),
         ),
       )

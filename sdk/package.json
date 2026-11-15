@@ -1,7 +1,7 @@
 {
-  "name": "inkboard-sdk",
+  "name": "loosedraw-sdk",
   "version": "0.1.0",
-  "description": "Build Inkboard scenes in code: shapes, attached arrows, auto-laid-out graphs and Mermaid flowcharts.",
+  "description": "Build Loosedraw scenes in code: shapes, attached arrows, auto-laid-out graphs and Mermaid flowcharts.",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/types/sdk/src/index.d.ts",

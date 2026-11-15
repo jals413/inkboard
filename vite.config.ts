@@ -8,7 +8,7 @@ import react from "@vitejs/plugin-react";
  * download the whole app on first visit and serve it offline afterwards.
  */
 const serviceWorker = (): Plugin => ({
-  name: "inkboard-service-worker",
+  name: "loosedraw-service-worker",
   apply: "build",
   generateBundle(_, bundle) {
     const files = Object.keys(bundle).filter(

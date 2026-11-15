@@ -1,4 +1,4 @@
-// Converts an .excalidraw file into Inkboard shapes, so people can bring
+// Converts an .excalidraw file into Loosedraw shapes, so people can bring
 // their existing drawings with them. Reads the public file format only.
 
 import { measureText } from "./render";

@@ -1,4 +1,4 @@
-// The Inkboard SDK: build a scene in code, then save it as an .inkboard file
+// The Loosedraw SDK: build a scene in code, then save it as an .loosedraw file
 // or open it in the app with a link. It runs anywhere JavaScript does (Node,
 // Deno, Bun, the browser) and has no dependencies.
 //
@@ -8,7 +8,7 @@
 //     edges: [{ from: "a", to: "b" }],
 //   });
 //   scene.note({ x: 300, y: 0, text: "Remember the edge cases" });
-//   fs.writeFileSync("flow.inkboard", scene.toJSON());
+//   fs.writeFileSync("flow.loosedraw", scene.toJSON());
 
 import { applyBindings, unionBounds } from "../../src/engine/geom";
 import {
@@ -299,7 +299,7 @@ export class Scene {
     this.place(graphToShapes(parseMermaid(source), estimateText), at);
   }
 
-  /** Every ready-made item in Inkboard's shape library, by pack. */
+  /** Every ready-made item in Loosedraw's shape library, by pack. */
   static library(): { pack: string; items: string[] }[] {
     return LIBRARY.map((pack) => ({ pack: pack.name, items: pack.items.map((item) => item.name) }));
   }
@@ -330,15 +330,15 @@ export class Scene {
     return main.id;
   }
 
-  /** The scene as the text of an .inkboard file. */
+  /** The scene as the text of an .loosedraw file. */
   toJSON(): string {
     // Attached arrows are trimmed to the edges of the shapes they join.
     const shapes = applyBindings(this.shapes);
-    return JSON.stringify({ type: "inkboard", version: FILE_VERSION, name: this.name, shapes }, null, 2);
+    return JSON.stringify({ type: "loosedraw", version: FILE_VERSION, name: this.name, shapes }, null, 2);
   }
 
   /**
-   * A link that opens this scene as a new scene in the Inkboard app. The
+   * A link that opens this scene as a new scene in the Loosedraw app. The
    * scene travels in the link itself, after the #, so it is never sent to
    * a server.
    */

@@ -162,7 +162,7 @@ export function App() {
         update((l) => withOpen({ ...l, scenes: [...l.scenes, meta] }, meta.id));
         setToast(`Opened “${meta.name}” as a new scene.`);
       } catch {
-        setToast("That link did not contain a scene Inkboard can read.");
+        setToast("That link did not contain a scene Loosedraw can read.");
       }
     };
     void take();
@@ -196,7 +196,7 @@ export function App() {
 
   const activeName = lib?.scenes.find((s) => s.id === lib.activeId)?.name;
   useEffect(() => {
-    document.title = activeName ? `${activeName} · Inkboard` : "Inkboard";
+    document.title = activeName ? `${activeName} · Loosedraw` : "Loosedraw";
   }, [activeName]);
 
   const update = useCallback(
@@ -295,7 +295,7 @@ export function App() {
     for (const file of Array.from(files)) {
       try {
         const data = await parseSceneFile(file);
-        const meta = newMeta(file.name.replace(/\.inkboard$|\.json$/i, ""), null);
+        const meta = newMeta(file.name.replace(/\.loosedraw$|\.inkboard$|\.excalidraw$|\.json$/i, ""), null);
         await saveScene(meta.id, data);
         update((l) => withOpen({ ...l, scenes: [...l.scenes, meta] }, meta.id));
       } catch {
@@ -303,7 +303,7 @@ export function App() {
       }
     }
     if (failed.length) {
-      setToast(`Could not import ${failed.join(", ")}: not an Inkboard file.`);
+      setToast(`Could not import ${failed.join(", ")}: not an Loosedraw file.`);
     }
   };
 

@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-// The Inkboard MCP server: lets any AI tool that speaks the Model Context
-// Protocol draw on Inkboard. Each tool builds a scene with the SDK, saves it
-// as an .inkboard file, and (unless told not to) opens it in the app.
+// The Loosedraw MCP server: lets any AI tool that speaks the Model Context
+// Protocol draw on Loosedraw. Each tool builds a scene with the SDK, saves it
+// as an .loosedraw file, and (unless told not to) opens it in the app.
 //
 // Settings, as environment variables:
-//   INKBOARD_URL  where the app runs       (default http://localhost:5173)
-//   INKBOARD_DIR  where files are written  (default ~/Inkboard)
+//   LOOSEDRAW_URL  where the app runs       (default http://localhost:5173)
+//   LOOSEDRAW_DIR  where files are written  (default ~/Loosedraw)
 
 import { execFile } from "node:child_process";
 import { mkdir, writeFile } from "node:fs/promises";
@@ -16,8 +16,8 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 import { Scene } from "../sdk/dist/index.js";
 
-const APP_URL = process.env.INKBOARD_URL ?? "http://localhost:5173";
-const OUT_DIR = process.env.INKBOARD_DIR ?? join(homedir(), "Inkboard");
+const APP_URL = process.env.LOOSEDRAW_URL ?? "http://localhost:5173";
+const OUT_DIR = process.env.LOOSEDRAW_DIR ?? join(homedir(), "Loosedraw");
 /** Longer links than this are not handed to the browser; the file is the way in. */
 const MAX_LINK = 200_000;
 
@@ -35,23 +35,23 @@ const deliver = async (scene, open, target = "new") => {
   await mkdir(OUT_DIR, { recursive: true });
   const safe = scene.name.replace(/[^\w\- ]+/g, "").trim().replace(/\s+/g, "-") || "scene";
   const stamp = new Date().toISOString().replace(/[:T]/g, "-").slice(0, 19);
-  const file = join(OUT_DIR, `${safe}-${stamp}.inkboard`);
+  const file = join(OUT_DIR, `${safe}-${stamp}.loosedraw`);
   await writeFile(file, scene.toJSON());
 
   const link = scene.toLink(APP_URL, target);
   const where = target === "current" ? "added to the scene that is open" : "as a new scene";
   const lines = [`Created “${scene.name}” with ${scene.shapes.length} shapes.`, `Saved to ${file}`];
   if (link.length > MAX_LINK) {
-    lines.push("The scene is too large for a link. Import the file from Inkboard's sidebar instead.");
+    lines.push("The scene is too large for a link. Import the file from Loosedraw's sidebar instead.");
   } else if (open) {
     const opened = await openInBrowser(link);
     lines.push(
       opened
-        ? `Opened it in Inkboard at ${APP_URL}, ${where}.`
-        : `Could not launch a browser. Open this link to load it in Inkboard: ${link}`,
+        ? `Opened it in Loosedraw at ${APP_URL}, ${where}.`
+        : `Could not launch a browser. Open this link to load it in Loosedraw: ${link}`,
     );
   } else {
-    lines.push(`Open this link to load it in Inkboard: ${link}`);
+    lines.push(`Open this link to load it in Loosedraw: ${link}`);
   }
   return { content: [{ type: "text", text: lines.join("\n") }] };
 };
@@ -68,21 +68,21 @@ const fail = (error) => ({
 });
 
 const colorHelp = "ink, red, orange, green, blue, purple, yellow, or a hex colour like #0ea5e9";
-const open = z.boolean().default(true).describe("Open the result in the Inkboard app in the user's browser");
+const open = z.boolean().default(true).describe("Open the result in the Loosedraw app in the user's browser");
 const title = z.string().describe("Name of the new scene");
 const target = z
   .enum(["new", "current"])
   .default("new")
-  .describe("new: open as a new scene. current: add the shapes to the scene the user has open in Inkboard");
+  .describe("new: open as a new scene. current: add the shapes to the scene the user has open in Loosedraw");
 
-const server = new McpServer({ name: "inkboard", version: "0.1.0" });
+const server = new McpServer({ name: "loosedraw", version: "0.1.0" });
 
 server.registerTool(
   "create_diagram",
   {
     title: "Create a diagram",
     description:
-      "Create a diagram of boxes joined by arrows on Inkboard, laid out automatically: flowcharts, " +
+      "Create a diagram of boxes joined by arrows on Loosedraw, laid out automatically: flowcharts, " +
       "architecture diagrams, dependency graphs, org charts, state machines. Say what connects to what; " +
       "do not give positions. This is the best tool for most diagrams.",
     inputSchema: {
@@ -135,7 +135,7 @@ server.registerTool(
   {
     title: "Create a diagram from Mermaid",
     description:
-      "Turn a Mermaid flowchart (text starting with “flowchart TD” or “graph LR”) into an editable Inkboard " +
+      "Turn a Mermaid flowchart (text starting with “flowchart TD” or “graph LR”) into an editable Loosedraw " +
       "diagram. Only flowcharts are supported, not sequence, class or other Mermaid diagram kinds.",
     inputSchema: { title, mermaid: z.string().describe("The Mermaid flowchart source"), target, open },
   },
@@ -178,7 +178,7 @@ server.registerTool(
   {
     title: "Create a free-form canvas",
     description:
-      "Place shapes on Inkboard at exact positions: wireframes, annotated layouts, sticky-note boards, tables, " +
+      "Place shapes on Loosedraw at exact positions: wireframes, annotated layouts, sticky-note boards, tables, " +
       "anything that is not a graph. Coordinates are pixels with y growing downwards; a typical box is about " +
       "160 by 80. List shapes before the arrows that refer to them. An element of type \"library\" places a " +
       "ready-made item (a database, server, phone, chart and so on): call list_library for the names. For " +
@@ -261,7 +261,7 @@ server.registerTool(
   {
     title: "List the shape library",
     description:
-      "List Inkboard's ready-made shapes by pack (flowchart, architecture, wireframe, UML, cloud, charts, " +
+      "List Loosedraw's ready-made shapes by pack (flowchart, architecture, wireframe, UML, cloud, charts, " +
       "people and more). Use a name from this list as the \"item\" of a library element in create_canvas.",
     inputSchema: {},
   },

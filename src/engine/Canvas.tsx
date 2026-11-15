@@ -206,7 +206,7 @@ type Drag =
   | { kind: "laser" };
 
 /** The data-transfer type a library item carries while it is dragged. */
-export const LIBRARY_DRAG_TYPE = "application/x-inkboard-item";
+export const LIBRARY_DRAG_TYPE = "application/x-loosedraw-item";
 
 const SHAPE_TOOLS: Partial<Record<Tool, ShapeType>> = {
   rect: "rect",
@@ -1520,7 +1520,7 @@ export const Canvas = forwardRef<EngineApi, Props>(function Canvas(props, ref) {
   const apiRef = useRef(api);
   apiRef.current = api;
   // In development the engine is reachable from the console, for testing.
-  if (import.meta.env.DEV) (window as unknown as { inkboard?: EngineApi }).inkboard = api;
+  if (import.meta.env.DEV) (window as unknown as { loosedraw?: EngineApi }).loosedraw = api;
 
   /* ------------------------- Keyboard, wheel, resize ----------------------- */
 
@@ -1613,7 +1613,7 @@ export const Canvas = forwardRef<EngineApi, Props>(function Canvas(props, ref) {
 
     // Clipboard. Shapes travel as JSON under our own type, so they paste
     // between scenes and tabs; plain text and images come in from anywhere.
-    const SHAPES_MIME = "application/x-inkboard-shapes";
+    const SHAPES_MIME = "application/x-loosedraw-shapes";
     const busy = (ev: Event) =>
       typing(ev.target) || !!document.querySelector(".modal-backdrop");
     const onCopy = (ev: ClipboardEvent) => {

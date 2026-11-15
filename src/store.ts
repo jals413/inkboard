@@ -83,13 +83,13 @@ export const addVersion = async (
   return trimmed;
 };
 
-export const FILE_EXTENSION = ".inkboard";
+export const FILE_EXTENSION = ".loosedraw";
 
 export const serializeScene = (name: string, shapes: Shape[]) =>
-  JSON.stringify({ type: "inkboard", version: 1, name, shapes }, null, 2);
+  JSON.stringify({ type: "loosedraw", version: 1, name, shapes }, null, 2);
 
 /**
- * Parse an .inkboard file, or convert an .excalidraw one, into scene data.
+ * Parse a .loosedraw file, or convert an .excalidraw one, into scene data.
  * Throws if the file is neither.
  */
 export const parseSceneFile = async (file: File): Promise<SceneData> =>
@@ -99,8 +99,9 @@ export const parseSceneFile = async (file: File): Promise<SceneData> =>
 export const parseScene = (json: unknown): SceneData & { name?: string } => {
   if (isExcalidrawFile(json)) return { shapes: importExcalidraw(json) };
   const scene = json as { type?: string; name?: unknown; shapes?: Shape[] };
-  if (scene?.type !== "inkboard" || !Array.isArray(scene.shapes)) {
-    throw new Error("Not an Inkboard file");
+  // "inkboard" is the product's earlier name: files saved then still open.
+  if ((scene?.type !== "loosedraw" && scene?.type !== "inkboard") || !Array.isArray(scene.shapes)) {
+    throw new Error("Not an Loosedraw file");
   }
   // Scenes built outside the app (the SDK, an AI tool) only estimate how
   // big text is: measure it properly, then re-seat the attached arrows.

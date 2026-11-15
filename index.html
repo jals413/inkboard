@@ -3,17 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loosedraw: free hand-drawn whiteboard for diagrams and sketches</title>
+    <!-- TODO(human): the one or two sentences people read under the link in
+         search results. Replace the content below with your own wording. -->
     <meta
       name="description"
-      content="Inkboard is a free hand-drawn whiteboard with unlimited scenes, folders, tables, formulas and version history."
+      content="Loosedraw is a free online whiteboard with a hand-drawn look. Sketch diagrams, flowcharts and notes in your browser, with no sign-up. Works offline."
     />
+    <link rel="canonical" href="https://loosedraw.com/" />
     <meta name="theme-color" content="#2563eb" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="manifest" href="./manifest.webmanifest" />
-    <title>Inkboard</title>
+
+    <!-- How the link looks when it is shared in chats and on social sites. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Loosedraw" />
+    <meta property="og:url" content="https://loosedraw.com/" />
+    <meta property="og:title" content="Loosedraw: free hand-drawn whiteboard" />
+    <meta
+      property="og:description"
+      content="Sketch diagrams, flowcharts and notes in a hand-drawn style. Free, in your browser, no sign-up."
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <!-- Tells search engines this page is a free web application. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Loosedraw",
+        "url": "https://loosedraw.com/",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "description": "A free online whiteboard with a hand-drawn look, for diagrams, flowcharts, wireframes and notes.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "featureList": [
+          "Hand-drawn shapes, arrows, sticky notes and pen",
+          "Flowcharts with arrows that stay attached",
+          "Tables and LaTeX formulas",
+          "Mermaid flowchart import",
+          "Shape library with about 100 ready-made shapes",
+          "PNG and SVG export",
+          "Works offline"
+        ]
+      }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Shown until the app starts, and read by search engines, which see
+           no text on a canvas. The app replaces it. -->
+      <main class="boot">
+        <h1>Loosedraw</h1>
+        <p>A free online whiteboard with a hand-drawn look, for diagrams, flowcharts, wireframes and notes.</p>
+        <ul>
+          <li>Hand-drawn shapes, sticky notes, pen and highlighter</li>
+          <li>Arrows that stay attached to shapes, with curves and right-angle elbows</li>
+          <li>Tables, LaTeX formulas and a library of ready-made shapes</li>
+          <li>Mermaid flowcharts turned into editable diagrams</li>
+          <li>Export to PNG and SVG, and import of Excalidraw files</li>
+          <li>Works offline and keeps your drawings on your device</li>
+        </ul>
+      </main>
+    </div>
     <script type="module" src="./src/main.tsx"></script>
   </body>
 </html>

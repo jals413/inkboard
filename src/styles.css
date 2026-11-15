@@ -1,4 +1,4 @@
-/* Inkboard: app shell and canvas chrome. */
+/* Loosedraw: app shell and canvas chrome. */
 
 :root {
   font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -2047,4 +2047,21 @@ kbd {
 .app :is(input, textarea) {
   user-select: text;
   -webkit-user-select: text;
+}
+
+/* The plain page shown for a moment before the app starts. */
+
+.boot {
+  max-width: 520px;
+  margin: 18vh auto 0;
+  padding: 0 24px;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.boot h1 {
+  margin: 0 0 6px;
+  font-size: 28px;
+  letter-spacing: -0.5px;
+  color: #16181d;
 }

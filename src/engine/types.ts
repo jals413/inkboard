@@ -1,4 +1,4 @@
-// The Inkboard document model. Everything on a board is a Shape.
+// The Loosedraw document model. Everything on a board is a Shape.
 
 export type ShapeType =
   | "rect"
